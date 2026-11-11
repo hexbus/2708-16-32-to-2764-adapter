@@ -49,10 +49,9 @@ R1–R3 are upright DIN0204 resistors. D1–D4 are upright BAT85 Schottky diodes
 - Original adapter layout and credit carried forward from [hexbus/2364-adapter](https://github.com/hexbus/2364-adapter). See [LICENSE](LICENSE).
 
 Download the Gerber ZIP, open JLCPCB through the referral link, and upload
-the ZIP. Select **2 layers, 1.6 mm FR4 and 1 oz copper**, and confirm the
-detected board size is **28 × 38.5 mm** before ordering. Upload the ZIP
-manually after opening the referral link. I may receive referral rewards for
-qualifying new users.
+the ZIP manually. Select **2 layers, 1.6 mm FR4 and 1 oz copper**, and confirm
+the detected board size is **28 × 38.5 mm** before ordering. I may receive
+referral rewards for qualifying new users.
 
 | Top | Bottom, viewed from underneath |
 | --- | --- |
