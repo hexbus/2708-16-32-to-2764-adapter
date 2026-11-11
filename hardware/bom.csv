@@ -1,0 +1,12 @@
+Reference,Quantity,Description,Specification
+PCB,1,Adapter PCB,28 x 37 mm two-layer FR4
+U1 socket,2,Turned-pin female socket strips,1x14 at 2.54 mm pitch with 15.24 mm row spacing and 0.8 mm PCB holes
+J1 plug,2,Round-pin male adapter strips,1x12 at 2.54 mm pitch with 15.24 mm row spacing and 0.8 mm PCB holes
+JP1–JP3,3,Vertical male pin headers,1x3 at 2.54 mm pitch with 1.0 mm PCB holes
+Shunts,3,Removable shorting shunts,2.54 mm pitch
+JP4,0,Solder bridge,Close for 2764 or 27C64 and leave open for AT28C64B
+C1,1,100 nF ceramic capacitor,Low-profile 0805 X7R or X5R at least 16 V
+R1 R2,2,1 kΩ axial resistor,DIN0204 upright with 2.54 mm lead spacing and 0.7 mm PCB holes; at least 0.125 W
+R3,1,10 kΩ axial resistor,DIN0204 upright with 2.54 mm lead spacing and 0.7 mm PCB holes
+D1 D2,2,BAT54S dual series Schottky,SOT-23 with pin 3 as common junction
+U1,1,Programmed read-only memory,5 V DIP28 2764 or 27C64 or AT28C64B
