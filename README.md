@@ -14,6 +14,8 @@ Check the host's +5 V current budget, especially in a 2708 socket. The Intel 270
 
 On the top, with the EPROM notch up, the shunts are labeled CE, A10 and A11 from top to bottom. The square pad on each is pin 1, nearest the notch end. Use one shunt per header. Set the shunts with power off and verify the host socket pinout before inserting the adapter. The three-supply TI TMS2716 and the TMS2532 have different pinouts.
 
+Each host shunt header has its own outline on the top. Read the underside chart with its notch marker up. **↑** means place the shunt toward the notch (pins 1–2). **↓** means place it away from the notch (pins 2–3).
+
 Bridge **JP4** for a 2764/27C64 that requires +5 V on VPP during reads. Leave it open for the AT28C64B, which has NC on pin 1. The socket is for normal reads only. Programming voltages on the host's control pins are outside the design limits.
 
 ## Wiring
@@ -42,7 +44,7 @@ R1–R3 are upright through-hole resistors. A compact DIN0204 body fits the side
 ## Board files
 
 - [KiCad project](hardware/2708-16-32-to-2764-adapter.kicad_pro), [schematic](hardware/2708-16-32-to-2764-adapter.kicad_sch) and [BOM](hardware/bom.csv)
-- [Rev A prototype Gerber and drill ZIP](gerbers/2708-16-32-to-2764-adapter-rev-a-prototype.zip)
+- [Rev A prototype Gerber and drill ZIP with arrow legend](gerbers/2708-16-32-to-2764-adapter-rev-a-legend.zip)
 - Original adapter layout and credit carried forward from [hexbus/2364-adapter](https://github.com/hexbus/2364-adapter). See [LICENSE](LICENSE).
 
 | Top | Bottom, viewed from underneath |
