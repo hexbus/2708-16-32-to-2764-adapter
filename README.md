@@ -1,6 +1,6 @@
 # 2708 / 2716 / 2732 to 2764 adapter
 
-A **28 × 37 mm** read-only adapter for Intel-pinout 2708, 2716 and 2732 sockets. It takes a 5 V DIP-28 2764/27C64 EPROM or Microchip AT28C64B EEPROM. The three host shunts sit beside the memory and remain accessible with it installed. The notched top outline marks all 28 memory pads.
+A **28 × 38.5 mm** read-only adapter for Intel-pinout 2708, 2716 and 2732 sockets. It takes a 5 V DIP-28 2764/27C64 EPROM or Microchip AT28C64B EEPROM. The three host shunts sit beside the memory and remain accessible with it installed. The notched top outline marks all 28 memory pads.
 
 Program the replacement chip separately. Place the original image at offset **0x0000** in the 8 KiB image for the replacement. The rest can be filled with `FF`.
 
@@ -37,22 +37,24 @@ Bridge **JP4** for a 2764/27C64 that requires +5 V on VPP during reads. Leave it
 
 In 2708 mode, host pin 20 controls both /CE and /OE. When the host pulls that pin low, the replacement drives the data bus. When the pin goes high, the replacement releases the bus. A10, A11 and A12 are held low, so the host's ten address lines select the first 1 KiB.
 
-The 2708 shunt settings isolate host pins 18, 19 (+12 V) and 21 (−5 V) from the memory. R1/D1 and R2/D2 limit current and clamp A10 and A11 if a misplaced shunt connects an address input to one of those rails while the adapter is powered. Set the correct host mode for the enable signals as well.
+The 2708 shunt settings isolate host pins 18, 19 (+12 V) and 21 (−5 V) from the memory. R1 with D1/D2 clamps A10. R2 with D3/D4 clamps A11. The resistors limit current if a misplaced shunt connects an address input to one of those rails while the adapter is powered. Set the correct host mode for the enable signals as well.
 
-R1–R3 are upright through-hole resistors. A compact DIN0204 body fits the side strip. C1 is a low-profile 0805 under the memory footprint, and D1/D2 are SOT-23. [Vishay MRS16 dimensions](https://www.vishay.com/docs/28724/mrs16m25.pdf)
+R1–R3 are upright DIN0204 resistors. D1–D4 are upright BAT85 Schottky diodes. On each diode, put the banded cathode lead in the rounded square pad inside the printed circle. C1 is a low-profile 0805 under the memory footprint. [Vishay MRS16 dimensions](https://www.vishay.com/docs/28724/mrs16m25.pdf) · [Philips BAT85 datasheet](https://media.digikey.com/pdf/Data%20Sheets/Philips%20Semiconductor%20PDFs/BAT85.pdf)
 
 ## Board files
 
 - [KiCad project](hardware/2708-16-32-to-2764-adapter.kicad_pro), [schematic](hardware/2708-16-32-to-2764-adapter.kicad_sch) and [BOM](hardware/bom.csv)
-- [Rev A prototype Gerber and drill ZIP with arrow legend](gerbers/2708-16-32-to-2764-adapter-rev-a-legend.zip)
+- [Rev B prototype Gerber and drill ZIP with through-hole diodes](gerbers/2708-16-32-to-2764-adapter-rev-b-through-hole.zip)
 - Original adapter layout and credit carried forward from [hexbus/2364-adapter](https://github.com/hexbus/2364-adapter). See [LICENSE](LICENSE).
 
 | Top | Bottom, viewed from underneath |
 | --- | --- |
 | ![Top Gerber preview](images/top.png) | ![Bottom Gerber preview](images/bottom.png) |
 
-The exact ZIP was checked for copper connectivity, all three shunt settings, the 28 × 37 mm outline, plated drill sizes and locations, all solderable pad openings and silkscreen clearance. The vias are tented. The previews come from the ZIP. Physical fit, soldering, bus timing and operation still need a prototype test.
+The exact ZIP was checked for copper connectivity, all three shunt settings, the 28 × 38.5 mm outline, plated drill sizes and locations, all solderable pad openings and silkscreen clearance. The previews come from the ZIP. Physical fit, soldering, bus timing and operation still need a prototype test.
+
+For a first test, check socket fit, diode polarity and +5 V at U1 pin 28 before installing the memory. With a known image programmed at offset zero, read back the full 1 KiB, 2 KiB or 4 KiB window in the matching host mode. Record the host, EPROM part number and mode tested.
 
 Host datasheets for the [Intel 2708](https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/Intel/Memory%20Components/Intel%202708.pdf), [Intel 2716](https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/Intel/Memory%20Components/Intel%202716.pdf) and [Intel 2732](https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/Intel/Memory%20Components/Intel%202732.pdf).
 
-Memory and clamp datasheets for the [Intel 2764](https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/Intel/Memory%20Components/Intel%202764.pdf), [ST M27C64A](https://media.digikey.com/pdf/Data%20Sheets/ST%20Microelectronics%20PDFS/m27c64a_Rev2006.pdf), [Microchip AT28C64B](https://ww1.microchip.com/downloads/en/DeviceDoc/doc0270.pdf) and [Nexperia BAT54S](https://assets.nexperia.com/documents/data-sheet/BAT54S.pdf).
+Replacement memory datasheets for the [Intel 2764](https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/Intel/Memory%20Components/Intel%202764.pdf), [ST M27C64A](https://media.digikey.com/pdf/Data%20Sheets/ST%20Microelectronics%20PDFS/m27c64a_Rev2006.pdf) and [Microchip AT28C64B](https://ww1.microchip.com/downloads/en/DeviceDoc/doc0270.pdf).
