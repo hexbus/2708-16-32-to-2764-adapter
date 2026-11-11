@@ -41,11 +41,18 @@ The 2708 shunt settings isolate host pins 18, 19 (+12 V) and 21 (−5 V) from th
 
 R1–R3 are upright DIN0204 resistors. D1–D4 are upright BAT85 Schottky diodes. On each diode, put the banded cathode lead in the rounded square pad inside the printed circle. C1 is a low-profile 0805 under the memory footprint. [Vishay MRS16 dimensions](https://www.vishay.com/docs/28724/mrs16m25.pdf) · [Philips BAT85 datasheet](https://media.digikey.com/pdf/Data%20Sheets/Philips%20Semiconductor%20PDFs/BAT85.pdf)
 
-## Board files
+## Files and fabrication
 
+- **[Download the Gerber ZIP — Rev B with through-hole diodes](https://github.com/hexbus/2708-16-32-to-2764-adapter/raw/refs/heads/main/gerbers/2708-16-32-to-2764-adapter-rev-b-through-hole.zip)**
+- **[Order at JLCPCB using my referral link](https://jlcpcb.com/?from=RVDYTTLKZHK)**
 - [KiCad project](hardware/2708-16-32-to-2764-adapter.kicad_pro), [schematic](hardware/2708-16-32-to-2764-adapter.kicad_sch) and [BOM](hardware/bom.csv)
-- [Rev B prototype Gerber and drill ZIP with through-hole diodes](gerbers/2708-16-32-to-2764-adapter-rev-b-through-hole.zip)
 - Original adapter layout and credit carried forward from [hexbus/2364-adapter](https://github.com/hexbus/2364-adapter). See [LICENSE](LICENSE).
+
+Download the Gerber ZIP, open JLCPCB through the referral link, and upload
+the ZIP. Select **2 layers, 1.6 mm FR4 and 1 oz copper**, and confirm the
+detected board size is **28 × 38.5 mm** before ordering. Upload the ZIP
+manually after opening the referral link. I may receive referral rewards for
+qualifying new users.
 
 | Top | Bottom, viewed from underneath |
 | --- | --- |
